@@ -1,0 +1,32 @@
+spring:
+  profiles:
+    active: default
+
+debug: true
+server:
+  port: 9999
+
+security:
+  ignored: /,/favicon.ico,/index.html,/home.html,/dashboard.html,/js/**,/css/**,/webjars/**
+  sessions: ALWAYS
+  oauth2:
+    sso:
+      loginPath: /dashboard/login
+    client:
+      clientId: oauthclient_00009COxkUxw8T6VFuT4xl
+      clientSecret: zH5YQV0j8Ln31QnB5S/FPV9Ph6MYkJ93kLMKlL5nmeMPcsWgUF058/76lyQ9MdcXPKtzH9t9+JLe5Rsp7ySj
+      accessTokenUri: https://api.getmondo.co.uk/oauth2/token
+      userAuthorizationUri: https://auth.getmondo.co.uk/
+      scope: profile
+    resource:
+      userInfoUri: https://api.getmondo.co.uk/ping/whoami
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    com.netflix.discovery: 'OFF'
+  
+---
+
+spring:
+  profiles: cloud
